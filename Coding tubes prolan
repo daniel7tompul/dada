@@ -1,0 +1,230 @@
+ #include <iostream> // ini adalah librarynya
+
+using namespace std; // standart karakter uuntuk library input output
+
+const int batas = 80; //Length atau panjang karakter
+
+class pegawai {
+	private:
+		char nama[batas];
+		unsigned long nip;
+	public:
+		void getdata() {
+			cout << endl << "Masukkan Nama : ";
+			cin >> nama;
+			cout << "NIP : ";
+			cin >> nip;
+		}
+		void putdata() {
+			cout << endl << " Nama : " << nama;
+			cout << endl << " NIP : " << nip;
+		}
+};
+
+class manager : public pegawai {
+
+	private:
+		int bagian;
+		char inginulang;
+		int akademik=1200000000;
+		int badanintelejen=1500000000;
+	public:
+		void getdata() {
+            inginulang:
+			pegawai::getdata();
+            system("cls");
+			cout<<"1. Akademik"<<endl;
+			cout<<"2. Badan Intelejen"<<endl;
+			cout<<"Pilih bagian anda = ";
+			cin >> bagian;
+			if (bagian==1){
+                cout<<"Gaji anda = Rp.1.200.000.000"<<endl;
+                cout<<"Terima kasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+			}
+            else if (bagian==2){
+                cout<<"Gaji anda = Rp.1.500.000.000"<<endl;
+                cout<<"Terimakasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+            else if (bagian>=2){
+                cout<<"Anda salah input !!!"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+			}
+		void putdata() {
+			pegawai::putdata();
+			cout << "\n Bagian : " << bagian;
+			if (bagian ==1 ){
+                    cout << "\n Gaji anda : " << akademik;
+            }
+			else if (bagian ==2){
+                cout<<" \n Gaji anda : "<<badanintelejen;
+			}
+		}
+};
+
+class staff : public pegawai {
+	private:
+		int bagian;
+		char inginulang;
+		int akademik=12000000;
+		int badanintelejen=15000000;
+		int administrasi=10000000;
+		int operasional=9000000;
+	public:
+		void getdata() {
+			pegawai::getdata();
+			inginulang:
+            system("cls");
+			cout<<"1. Akademik"<<endl;
+			cout<<"2. Badan Intelejen"<<endl;
+			cout<<"3. Administrasi "<<endl;
+			cout<<"4. Operasional "<<endl;
+			cout<<"Pilih bagian anda = ";
+			cin >> bagian;
+			if (bagian==1){
+                cout<<"Gaji anda = Rp.12.000.000"<<endl;
+                cout<<"Terima kasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+			}
+            else if (bagian==2){
+                cout<<"Gaji anda = Rp.15.000.000"<<endl;
+                cout<<"Terimakasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+            else if (bagian==3){
+                cout<<"Gaji anda = Rp.10.000.000"<<endl;
+                cout<<"Terimakasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+            else if (bagian==4){
+                cout<<"Gaji anda = Rp.9.000.000"<<endl;
+                cout<<"Terimakasih"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+            else if (bagian>=5){
+                cout<<"Anda salah input !!!"<<endl;
+                cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+                if (inginulang == 'Y'){
+                    goto inginulang;
+                }
+            }
+			}
+		void putdata() {
+			pegawai::putdata();
+			cout << "\n Bagian : " << bagian;
+			if (bagian ==1 ){
+                    cout << "\n Gaji anda : " << akademik;
+            }
+			else if (bagian ==2){
+                cout<<" \n Gaji anda : "<<badanintelejen;
+			}
+			else if (bagian ==3){
+                cout<<" \n Gaji anda : "<<administrasi;
+			}
+			else if (bagian ==4){
+                cout<<" \n Gaji anda : "<<operasional;
+			}
+		}
+};
+
+class buruh_operasional : public pegawai {
+    private:
+		char inginulang;
+		int buruh=2500000;
+	public:
+		void getdata() {
+			pegawai::getdata();
+			inginulang:
+            system("cls");
+            cout<<"Gaji anda = Rp 2.500.000"<<endl;
+            cout<<"Terimakasih"<<endl;
+            cout<<"Apakah anda ingin mengulang pengisian (Y/T)?";cin>>inginulang;
+            if (inginulang == 'Y'){
+            goto inginulang;
+            }
+		}
+		void putdata() {
+			pegawai::putdata();
+			cout<<endl;
+            cout<<"Bagian anda  = Buruh Operasional"<<endl;
+            cout<<"Gaji anda = "<<buruh<<endl;
+		}
+
+};
+
+int main ()
+{
+    manager m1;
+    staff s1;
+	buruh_operasional b1;
+    int gaji;
+    int posisi;
+    char inginulanginga;
+    inginulanginga:
+    system("cls");
+    cout<<"=========Selamat datang di aplikasi register========="<<endl;
+    cout<<"PILIH SESUAI POSISI ANDA                           "<<endl;
+    cout<<"1. Manager                                              "<<endl;
+    cout<<"2. Staff                                                  "<<endl;
+    cout<<"3. Buruh                                                  "<<endl;
+
+    cout<<"Masukkan posisi anda = ";cin>>posisi;
+
+    if (posisi == 1)
+        {
+            cout << endl;
+            cout << "Masukkan Data Manager ";
+            m1.getdata();
+            cout << "\t\tData anda sebagai Manager ";
+            m1.putdata();
+        }
+    else if (posisi == 2)
+        {
+            cout << endl;
+            cout << "Masukkan Data anda sebagai Staff";
+            s1.getdata();
+            cout << "\nData staff :";
+            s1.putdata();
+        }
+    else if (posisi == 3)
+        {
+            cout << endl;
+            cout << "Masukkan Data anda sebagai Buruh Operasional";
+            b1.getdata();
+            cout << "\nBuruh Operasional Adalah :";
+            b1.putdata();
+        }
+    else if (posisi >= 4)
+    {
+        cout<<"Anda salah input !!!"<<endl;
+        cout<<"Apakah anda ingin mengulangi input ? (Y/T)"<<endl;cin>>inginulanginga;
+        if (inginulanginga=='Y')
+        {
+            goto inginulanginga;
+        }
+    }
+    return 0;
+}
